@@ -21,6 +21,7 @@ export default class App extends React.Component {
       opponentGrid: t,
       myTurn: true,
     };
+    this.shoot=this.shoot.bind(this);
   }
 
   shoot(id){
@@ -37,6 +38,10 @@ export default class App extends React.Component {
         this.setState({ opponentGrid: t, myTurn: false });
       }
     }
+  }
+
+  opponentmove() {
+    
   }
 
   render(){

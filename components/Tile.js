@@ -1,15 +1,18 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 export default class Tile extends React.Component {
+    constructor(props){
+        super(props);
+    }
     render(){
         return(
-            <View onClick={this.props.shoot.bind(this,this.props.id)} style={
+            <Pressable onPress={this.props.shoot.bind(this,this.props.id)} style={
                 this.props.cont=='empty'? s.empty :
                     this.props.cont=='ship'? s.ship :
                         this.props.cont=='hit'? s.hit : s.miss} >
                             <Text style={s.cross}>{this.props.cont == 'hit' || this.props.cont == 'miss' ? 'X' : null}</Text>
-            </View>
+            </Pressable>
         );
     };
 }
@@ -51,5 +54,6 @@ const s=StyleSheet.create({
         color: 'red',
         textAlign: "center",
         fontWeight: 'bold',
+        fontSize: 25,
     }
 })
